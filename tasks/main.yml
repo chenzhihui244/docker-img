@@ -30,4 +30,4 @@
 
 # name: start docker image
 # shell:
-#   docker run -ti {{ docker_img_name }} /bin/bash
+#   docker run -ti {{ docker_img_name }} --name docker-test --net=host /bin/bash
