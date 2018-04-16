@@ -1,0 +1,33 @@
+---
+# tasks file for deepin-docker
+
+- name: Install dependencies on Ubuntu
+  apt:
+    name=docker.io
+    state=present
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: Install dependencies on Deepin
+  apt:
+    name=docker-ce
+    state=present
+  when: "ansible_distribution == 'Deepin GNU/Linux'"
+
+- name: mkdir docker image
+  file:
+    path={{ image_dir }}
+    state=directory
+
+- name: copy dockerfile
+  template:
+    src=Dockerfile
+    dest={{ image_dir }}
+
+- name: create docker image from rootfs
+  shell:
+    cd {{ image_dir }};
+    docker build -t {{ docker_img_name }} .
+
+# name: start docker image
+# shell:
+#   docker run -ti {{ docker_img_name }} /bin/bash

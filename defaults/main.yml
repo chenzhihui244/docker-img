@@ -1,0 +1,6 @@
+---
+# defaults file for deepin-docker
+
+rootfs_name: deepin15-rootfs.tar.gz
+docker_img_name: deepin:15
+image_dir: /c00365621/docker/img
