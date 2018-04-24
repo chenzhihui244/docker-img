@@ -31,3 +31,11 @@
 # name: start docker image
 # shell:
 #   docker run -ti {{ docker_img_name }} --name docker-test --net=host /bin/bash
+#   docker run -ti {{ docker_img_name }} --name docker-test --net=bridge /bin/bash
+#   docker run -ti -v /opt/dmdbms:/opt/dmdbms {{ docker_img_name }} --name docker-test --net=host /bin/bash
+#   docker run -ti -v /opt/APUSIC:/opt/APUSIC {{ docker_img_name }} --name docker-test --net=host /bin/bash
+#   docker run -tdi --privileged --name docker --hostname docker --net=host -v /c00365621:/opt deepin:15 init
+#   start oa docker
+#   docker run -tdi --privileged --name oad --hostname oad --net=host -v /c00365621:/opt --cpuset-cpus 4-31 --cpuset-mems 0,1 --memory 42949672960 deepin:15 init
+#   start db docker
+#   docker run -tdi --privileged --name dbd --hostname dbd --net=host -v /c00365621:/opt --cpuset-cpus 32-63 --cpuset-mems 2,3 --memory 66571993088 deepin:15 init
